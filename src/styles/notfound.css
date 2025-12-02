@@ -1,0 +1,97 @@
+* {
+    margin: 0 ;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    }
+
+.notfound-container {
+    text-align: center;
+    color: white;
+    animation: fadeIn 0.8s ease-in;
+}
+
+.notfound-code {
+    font-size: 120px;
+    font-weight: 900;
+    margin: 0;
+    background: linear-gradient(-135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    width: fit-content;
+    margin: 0 auto;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1);
+    animation: bounce 2s infinite;
+    cursor: pointer ;
+    
+}
+
+.notfound-title {
+    font-size: 36px;
+    margin: 20px 0;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.notfound-message {
+    font-size: 18px;
+    margin: 20px 0 40px;
+    opacity: 0.9;
+    line-height: 1.6;
+}
+
+.notfound-button {
+    display: inline-block;
+    padding: 14px 40px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #000000;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin: 10px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.notfound-button:hover {
+    
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.notfound-emoji {
+    font-size: 80px;
+    margin: 20px 0;
+    animation: float 3s ease-in-out infinite;
+    cursor: pointer ;
+}
+
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
