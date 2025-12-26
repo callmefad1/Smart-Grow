@@ -16,7 +16,7 @@ export default function Subscriptions() {
 
   const [showForm, setShowForm] = useState(false)
   const [editing, setEditing] = useState(null)
-  const [form, setForm] = useState({ name: '', price: '', features: '' })
+  const [form, setForm] = useState({ name: '', price: '', features: '', currency: '', period: '' })
 
   useEffect(() => {
     let unsub
@@ -43,13 +43,19 @@ export default function Subscriptions() {
 
   function openCreate() {
     setEditing(null)
-    setForm({ name: '', price: '', features: '' })
+    setForm({ name: '', price: '', features: '', currency: '', period: '' })
     setShowForm(true)
   }
 
   function openEdit(item) {
     setEditing(item)
-    setForm({ name: item.name || '', price: item.price || '', features: (item.features || []).join('\n') })
+    setForm({
+      name: item.name || '',
+      price: item.price || '',
+      features: (item.features || []).join('\n'),
+      currency: item.currency || '',
+      period: item.period || ''
+    })
     setShowForm(true)
   }
 
@@ -60,6 +66,8 @@ export default function Subscriptions() {
       name: form.name,
       price: Number(form.price) || 0,
       features: form.features.split('\n').map((s) => s.trim()).filter(Boolean),
+      currency: form.currency,
+      period: form.period
     }
     try {
       if (editing) {
@@ -130,6 +138,14 @@ export default function Subscriptions() {
               <label>
                 Price
                 <input type="number" value={form.price} onChange={(e) => setForm({ ...form, price: e.target.value })} required />
+              </label>
+              <label>
+                Currency
+                <input value={form.currency} onChange={(e) => setForm({ ...form, currency: e.target.value })} placeholder="e.g. dt, $" />
+              </label>
+              <label>
+                Period
+                <input value={form.period} onChange={(e) => setForm({ ...form, period: e.target.value })} placeholder="e.g. Monthly, Annually" />
               </label>
               <label>
                 Features (one per line)
