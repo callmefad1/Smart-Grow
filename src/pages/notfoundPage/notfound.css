@@ -1,0 +1,66 @@
+/* src/components/pages/notfoundpage/notfound.css */
+
+.notfound-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.notfound-content {
+    text-align: center;
+    color: white;
+}
+
+.light-mode .notfound-content {
+    color: #000000;
+}
+
+.notfound-icon {
+    color: #f87171;
+    margin-bottom: 30px;
+    opacity: 0.8;
+}
+
+.notfound-content h1 {
+    margin: 0 0 15px 0;
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.notfound-content p {
+    margin: 0 0 30px 0;
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.btn-home {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 30px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-home:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+}
+
+@media (max-width: 480px) {
+    .notfound-content h1 {
+        font-size: 2rem;
+    }
+
+    .notfound-content p {
+        font-size: 1rem;
+    }
+}

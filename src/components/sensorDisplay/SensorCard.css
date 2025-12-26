@@ -1,0 +1,150 @@
+.sensor-card {
+    background: #fff;
+    border: 1px solid #ececec;
+    border-radius: 22px;
+    padding: 32px 28px 18px 28px;
+    margin-bottom: 18px;
+    color: #232946;
+    box-shadow: 0 8px 32px 0 rgba(60,60,60,0.08);
+    transition: box-shadow 0.2s;
+    position: relative;
+    width: 370px;
+    max-width: 100%;
+    min-width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: auto;
+    margin-right: auto;
+}
+.sensor-card.offline {
+    opacity: 0.7;
+    filter: grayscale(0.3);
+}
+.sensor-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 12px;
+}
+.sensor-name h3 {
+    margin: 0 0 4px 0;
+    font-size: 1.15rem;
+    font-weight: 700;
+}
+.status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.9rem;
+}
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+    background: #22c55e;
+}
+.status-indicator.offline .status-dot {
+    background: #ef4444;
+}
+.status-indicator.online .status-dot {
+    background: #22c55e;
+}
+.sensor-type .type-badge {
+    background: #667eea;
+    color: #fff;
+    border-radius: 8px;
+    padding: 2px 10px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+.metrics-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px 12px;
+    margin-bottom: 12px;
+}
+.metric-item {
+    background: rgba(255,255,255,0.04);
+    border-radius: 10px;
+    padding: 10px 10px 8px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    box-shadow: 0 1px 4px 0 rgba(0,0,0,0.04);
+}
+.metric-icon {
+    margin-bottom: 4px;
+}
+.metric-label {
+    font-size: 0.85rem;
+    color: #a5b4fc;
+    font-weight: 600;
+}
+.metric-value {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #fff;
+}
+.metric-unit {
+    font-size: 0.85rem;
+    color: #a5b4fc;
+    margin-left: 2px;
+}
+.metric-bar {
+    width: 100%;
+    height: 6px;
+    background: #232946;
+    border-radius: 4px;
+    margin-top: 6px;
+    overflow: hidden;
+}
+.metric-bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.humidity-fill {
+    background: #38bdf8;
+}
+.soil-fill {
+    background: #22d3ee;
+}
+.temp-fill {
+    background: #fbbf24;
+}
+.water-fill {
+    background: #6366f1;
+}
+.battery-fill {
+    background: #22c55e;
+}
+.light-fill {
+    background: #f472b6;
+}
+.sensor-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+    color: #a5b4fc;
+    margin-top: 8px;
+}
+.sensor-id {
+    font-weight: 600;
+}
+.last-reading {
+    font-style: italic;
+}
+@media (max-width: 600px) {
+    .sensor-card {
+        padding: 14px 8px 10px 8px;
+        min-width: 180px;
+        max-width: 100%;
+    }
+    .metrics-grid {
+        grid-template-columns: 1fr;
+        gap: 10px 0;
+    }
+}
