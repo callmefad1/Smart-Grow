@@ -1,234 +1,285 @@
-# Smart Grow User Dashboard - Quick Start Guide
+# Smart Grow Admin Dashboard
 
-## 🚀 Quick Setup (5 minutes)
+Farm administrator management interface for Smart Grow agricultural management system. This dashboard provides comprehensive tools for managing farmers, monitoring IoT devices, and handling farm subscriptions.
 
-### 1. Install Dependencies
+## Overview
+
+The Admin Dashboard is a React-based application that enables farm administrators to manage multiple farmers, monitor IoT sensor data in real-time, and oversee subscription plans. It provides a centralized control hub for all farm management operations.
+
+## Key Features
+
+### Dashboard
+- Real-time farm statistics and overview
+- Performance metrics and analytics
+- Quick access to key management functions
+- System health monitoring
+
+### Farmer Management
+- Add new farmers to the system
+- View comprehensive farmer profiles
+- Update farmer information and details
+- Track farmer activity and subscriptions
+- Manage farmer data and settings
+
+### IoT Device Monitoring
+- Real-time monitoring of sensor data
+- IoT device status tracking
+- Historical data visualization
+- Alert management
+- Device configuration interface
+
+### Subscription Management
+- Monitor active subscriptions
+- Manage subscription plans
+- Track billing information
+- Handle subscription updates and cancellations
+- Generate subscription reports
+
+### Navigation & UI
+- Responsive navigation bar
+- Dark mode support (auto-detects system preference)
+- Intuitive component-based interface
+- Smooth animations with Framer Motion
+
+## Technology Stack
+
+- React 18.2.0
+- React Router DOM 6.30.1
+- Firebase 10.14.1 (Authentication & Realtime Database)
+- Framer Motion 12.23.24 (Animations)
+- Lucide React 0.546.0 (Icons)
+- React Scripts 5.0.1
+
+## Prerequisites
+
+- Node.js version 14 or higher
+- npm (Node Package Manager)
+- Firebase project with credentials
+- Internet connection for Firebase services
+
+## Installation Steps
+
+### Step 1: Navigate to Admin Directory
 ```bash
-cd user
-npm install
+cd admin
+```
 
-### 3. Start Development Server
+### Step 2: Manual Package Installation
+
+Install dependencies one by one using npm:
+
+```bash
+# React and ReactDOM - Core dependencies
+npm install react@18.2.0 react-dom@18.2.0
+
+# React Router - For client-side routing
+npm install react-router-dom@6.30.1
+
+# Firebase - Backend services and authentication
+npm install firebase@10.14.1
+
+# Framer Motion - Animation library
+npm install framer-motion@12.23.24
+
+# Lucide React - Icon library
+npm install lucide-react@0.546.0
+
+# React Scripts - Build and development tools
+npm install react-scripts@5.0.1
+
+# Testing libraries
+npm install @testing-library/react@13.4.0 @testing-library/jest-dom@5.17.0 @testing-library/user-event@13.5.0
+
+# Environment variables management
+npm install dotenv@16.6.1
+
+# Web performance metrics
+npm install web-vitals@2.1.4
+```
+
+### Step 3: Environment Configuration
+
+Create a `.env` file in the admin directory with your Firebase credentials:
+
+```
+REACT_APP_FIREBASE_API_KEY=your_firebase_api_key
+REACT_APP_FIREBASE_AUTH_DOMAIN=your_firebase_auth_domain
+REACT_APP_FIREBASE_PROJECT_ID=your_firebase_project_id
+REACT_APP_FIREBASE_STORAGE_BUCKET=your_firebase_storage_bucket
+REACT_APP_FIREBASE_MESSAGING_SENDER_ID=your_firebase_messaging_sender_id
+REACT_APP_FIREBASE_APP_ID=your_firebase_app_id
+```
+
+### Step 4: Start Development Server
+
 ```bash
 npm start
 ```
 
-The app will open at `http://localhost:3000`
+The application will open automatically at http://localhost:3000
+
+## Available npm Scripts
+
+```bash
+# Start development server
+npm start
+
+# Build for production
+npm build
+
+# Run tests
+npm test
+
+# Eject from Create React App (irreversible)
+npm eject
+```
+
+## Project Structure
+
+```
+admin/
+├── public/
+│   └── index.html
+├── src/
+│   ├── components/
+│   │   ├── Auth/
+│   │   │   ├── Login.jsx
+│   │   │   └── login.css
+│   │   ├── NavBar/
+│   │   │   ├── NavBar.jsx
+│   │   │   └── NavBar.css
+│   │   ├── buttons/
+│   │   ├── cards/
+│   │   ├── searchbar/
+│   │   └── Autosettings/
+│   ├── pages/
+│   │   ├── Dashboard.jsx
+│   │   ├── ManageFarmers.jsx
+│   │   ├── NewFarmer.jsx
+│   │   ├── UpdateFarmer.jsx
+│   │   ├── IoTMonitor.jsx
+│   │   ├── subscriptions.jsx
+│   │   └── NotFound.jsx
+│   ├── services/
+│   │   ├── autoSettingsService.js
+│   │   └── subscriptionService.js
+│   ├── config/
+│   │   └── firebaseConfig.js
+│   ├── routes/
+│   │   └── routes.js
+│   ├── styles/
+│   ├── utils/
+│   ├── App.js
+│   ├── App.css
+│   ├── index.js
+│   └── index.css
+├── package.json
+└── README.md
+```
+
+## Available Routes
+
+| Route | Description |
+|-------|-------------|
+| `/` | Login page |
+| `/dashboard` | Admin dashboard overview |
+| `/newfarmer` | Add new farmer form |
+| `/managefarmers` | View and manage all farmers |
+| `/updatefarmer/:firebaseId` | Update specific farmer information |
+| `/iot-monitor` or `/iot` | IoT device monitoring interface |
+| `/subscriptions` | Subscription management |
+| `*` | 404 Not Found page |
+
+## Configuration
+
+### Firebase Setup
+
+The admin dashboard uses Firebase for:
+- User authentication (Admin login)
+- Real-time database for farmer data
+- Cloud storage for documents
+- Cloud functions for backend operations
+
+Update `src/config/firebaseConfig.js` with your Firebase credentials.
+
+### Dark Mode
+
+The application automatically detects your system's color scheme preference:
+- Light mode for light system preference
+- Dark mode for dark system preference
+
+Users can toggle between modes in the NavBar.
+
+## Dependencies
+
+### Core Dependencies
+- react: 18.2.0
+- react-dom: 18.2.0
+- react-router-dom: 6.30.1
+
+### Services & Libraries
+- firebase: 10.14.1
+- framer-motion: 12.23.24
+- lucide-react: 0.546.0
+- dotenv: 16.6.1
+
+### Development Dependencies
+- react-scripts: 5.0.1
+- @testing-library/react: 13.4.0
+- @testing-library/jest-dom: 5.17.0
+
+## Development Guidelines
+
+- Components are organized by feature in the `components` directory
+- Pages are located in the `pages` directory
+- Business logic is centralized in the `services` directory
+- Routes are defined in `src/routes/routes.js`
+- Styles use CSS modules and CSS files
+- Follow React best practices and component composition patterns
+
+## Troubleshooting
+
+### Port Already in Use
+```bash
+npm start -- --port 3001
+```
+
+### Firebase Connection Issues
+- Verify Firebase credentials in `.env` file
+- Check Firebase project is active
+- Confirm network connectivity
+
+### Module Not Found Errors
+```bash
+# Clear node_modules and reinstall
+rm -r node_modules
+npm install
+```
+
+### Build Errors
+```bash
+# Clear cache and rebuild
+npm cache clean --force
+npm install
+npm run build
+```
+
+## Contributing
+
+When adding new features:
+1. Create new components in the `components` directory
+2. Add business logic to appropriate service files
+3. Update routes in `src/routes/routes.js`
+4. Follow existing code style and patterns
+
+## License
+
+This project is private. All rights reserved.
+
+## Support
+
+For technical issues or feature requests, contact the development team.
 
 ---
 
-## 📖 User Guide
-
-### First Time Login
-1. Click "Sign Up" on the login page
-2. Enter your email and password
-3. Click "Sign Up" to create account
-4. You'll be redirected to Dashboard (Basic plan by default)
-
-### Navigation
-- **Dashboard**: View real-time sensor data
-- **Farm Zones**: Manage your farm locations
-- **Vans**: Control water distribution vans
-- **Subscription**: View/upgrade your plan
-
-### Dashboard Usage
-- **Weather**: See weekly forecast
-- **Water Level**: Monitor well/container levels
-- **Soil Data**: Check temperature and humidity
-- **Battery**: Track sensor battery status
-
-### Managing Farm Zones
-1. Click "Add New Zone"
-2. Fill in zone details (name, location, area, crop type)
-3. Select soil type from dropdown
-4. Add optional description
-5. Click "Create Zone"
-
-To edit: Click the edit icon on a zone card
-To delete: Click the trash icon (confirmation required)
-
-### Controlling Water Vans
-1. Click "Add Van" to register a new van
-2. Enter van details (name, model, capacity)
-3. Use the Power button to activate/deactivate
-4. Set schedule time using the time input
-5. Set timer (in minutes) for auto-watering
-
-To request a new van:
-1. Click "Request New Van"
-2. Select van type and quantity
-3. Explain your need
-4. Submit to admin
-
-### Subscription Plans
-1. Go to "Subscription" page
-2. Compare the three plans
-3. Click "Upgrade" on desired plan
-4. Confirm the upgrade
-5. Your plan changes immediately
-
-**Note**: Basic plan only allows Dashboard access. Upgrade to access other features.
-
----
-
-## 🔑 Demo Credentials
-
-For testing, you can use any email/password combination. Firebase will create an account automatically.
-
-Example:
-- Email: `test@example.com`
-- Password: `Test@123`
-
----
-
-## 📋 Subscription Features Unlocked
-
-### Basic (FREE)
-✅ Dashboard
-✅ Sensor monitoring
-✅ Weather data
-❌ Farm Zones (disabled)
-❌ Water Vans (disabled)
-❌ Live Chat
-❌ AI Assistant
-
-### Moderate (55 DT/Month)
-✅ Dashboard
-✅ Sensor monitoring
-✅ Weather data
-✅ Farm Zones
-✅ Water Vans
-❌ Live Chat
-❌ AI Assistant
-
-### Premium (660 DT/Year)
-✅ All features
-✅ Live Chat
-✅ AI Assistant
-✅ Priority support
-
----
-
-## 🎨 Theme Toggle
-Click the sun/moon icon in the top-right corner to switch between light and dark modes.
-
----
-
-## 👤 User Profile
-Click your avatar in the top-right to:
-- View your email
-- Logout
-
----
-
-## ⚠️ Important Notes
-
-1. **Real-time Updates**: All data updates in real-time from Firebase
-2. **Auto-save**: Forms auto-save to database when submitted
-3. **Responsive Design**: Works perfectly on mobile, tablet, and desktop
-4. **Connection Status**: Check the connection indicator in dashboard header
-5. **Error Messages**: Red alerts show any issues - read them carefully
-
----
-
-## 🔍 Troubleshooting
-
-### Can't Login?
-- Check Firebase credentials in `.env` file
-- Ensure Firebase Realtime Database is enabled
-- Try signing up with a new account
-
-### Farm Zones Not Showing?
-- Make sure you're on Moderate or Premium plan
-- Check Firebase database permissions
-- Wait a moment for real-time sync
-
-### Vans Control Not Working?
-- Confirm subscription tier (Moderate+ required)
-- Check van status is not "Maintenance"
-- Verify Firebase database connectivity
-
-### Buttons Disabled?
-- You're on Basic plan - upgrade to access features
-- Go to Subscription page to upgrade
-
----
-
-## 💡 Tips & Tricks
-
-1. **Bulk Operations**: You can quickly toggle multiple vans on/off
-2. **Schedule Ahead**: Set schedules for vans days in advance
-3. **Monitor Battery**: Replace sensor batteries when below 25%
-4. **Zone Organization**: Use descriptive names for easy identification
-5. **Dark Mode**: Use dark mode in low-light conditions for eye comfort
-
----
-
-## 🆘 Getting Help
-
-### Check FAQ
-- Visit Subscription page > FAQ section
-- Many common questions answered there
-
-### Monitor Status
-- Check the "Connected" status in Dashboard header
-- Verify internet connection if offline
-
-### Review Errors
-- Read error messages carefully - they're descriptive
-- Check console for detailed error logs (F12)
-
----
-
-## 📱 Mobile Experience
-
-The dashboard is fully optimized for mobile:
-- Hamburger menu on small screens
-- Touch-friendly buttons and inputs
-- Responsive grid layouts
-- Works in portrait and landscape
-- Smooth gestures and animations
-
----
-
-## 🔐 Security & Privacy
-
-- Your data is stored securely in Firebase
-- All data is encrypted in transit
-- Passwords are hashed by Firebase Auth
-- You can logout anytime to end your session
-- Delete your account settings (if available in admin panel)
-
----
-
-## 🚀 Production Deployment
-
-When ready to deploy:
-
-1. **Build the app**
-   ```bash
-   npm run build
-   ```
-
-2. **Deploy to Firebase Hosting** (recommended)
-   ```bash
-   npm install -g firebase-tools
-   firebase login
-   firebase deploy
-   ```
-
-3. **Or deploy to your server**
-   - Upload `build/` folder contents
-   - Configure web server for SPA routing
-
----
-
-## 📞 Support
-
-For detailed documentation, see:
-- `README.md` - Full feature documentation
-- `IMPLEMENTATION_SUMMARY.md` - Technical overview
-- Code comments in component files
-
----
-
-**Enjoy managing your farm with Smart Grow! 🌾**
+For the complete Smart Grow project overview, see the main [README](../README.md).
